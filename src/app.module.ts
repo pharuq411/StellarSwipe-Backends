@@ -8,6 +8,7 @@ import { StellarConfigService } from './config/stellar.service';
 import { LoggerModule } from './common/logger';
 import { SentryModule } from './common/sentry';
 import { BetaModule } from './beta/beta.module';
+import { TradesModule } from './trades/trades.module';
 
 @Module({
   imports: [
@@ -43,6 +44,7 @@ import { BetaModule } from './beta/beta.module';
     }),
     // Feature Modules
     BetaModule,
+    TradesModule,
   ],
   providers: [StellarConfigService],
   exports: [StellarConfigService],
