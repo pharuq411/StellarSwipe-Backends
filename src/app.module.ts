@@ -5,6 +5,7 @@ import { stellarConfig } from "./config/stellar.config";
 import { databaseConfig, redisConfig } from "./config/database.config";
 import { appConfig } from "./config/app.config";
 import { StellarConfigService } from "./config/stellar.service";
+import { RiskManagerModule } from "./risk/risk-manager.module";
 
 @Module({
   imports: [
@@ -25,15 +26,16 @@ import { StellarConfigService } from "./config/stellar.service";
         port: configService.get("database.port"),
         username: configService.get("database.username"),
         password: configService.get("database.password"),
-        database: configService.get("database.database"),
+        database: configService.get<string>("database.database"),
         synchronize: configService.get("database.synchronize"),
         logging: configService.get("database.logging"),
         entities: ["dist/**/*.entity{.ts,.js}"],
         migrations: ["dist/migrations/*{.ts,.js}"],
         subscribers: ["dist/subscribers/*{.ts,.js}"],
-        ssl: configService.get("database.ssl"),
+        ssl: configService.get("database.ssl") as any,
       }),
     }),
+    RiskManagerModule,
   ],
   providers: [StellarConfigService],
   exports: [StellarConfigService],
