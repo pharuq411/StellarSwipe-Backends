@@ -12,6 +12,8 @@ import { BetaModule } from './beta/beta.module';
 import { TradesModule } from './trades/trades.module';
 import { RiskManagerModule } from './risk/risk-manager.module';
 import { PortfolioModule } from './portfolio/portfolio.module';
+import { UsersModule } from './users/users.module';
+import { SignalsModule } from './signals/signals.module';
 import { configSchema } from './config/schemas/config.schema';
 import configuration from './config/configuration';
 import { HealthModule } from './health/health.module';
