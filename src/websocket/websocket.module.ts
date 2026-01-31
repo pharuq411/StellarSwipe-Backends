@@ -16,6 +16,6 @@ import { SocketManagerService } from './services/socket-manager.service';
     }),
   ],
   providers: [WebsocketGateway, SocketManagerService],
-  exports: [SocketManagerService],
+  exports: [SocketManagerService, WebsocketGateway],
 })
-export class WebsocketModule {}
+export class WebsocketModule { }
