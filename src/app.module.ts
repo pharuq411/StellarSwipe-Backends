@@ -26,20 +26,11 @@ import { CacheModule } from './cache/cache.module';
 import { redisCacheConfig } from './config/redis.config';
 import { SorobanModule } from './soroban/soroban.module';
 import { SdexModule } from './sdex/sdex.module';
- main
 import { StellarModule } from './stellar/stellar.module';
-
- dash
 import { DashboardModule } from './dashboard/dashboard.module';
-
 import { AuthModule } from './auth/auth.module';
- Metrics-Aggregation
 import { AnalyticsModule } from './analytics/analytics.module';
-=======
 import { WebsocketModule } from './websocket/websocket.module';
- main
- main
- main
 
 @Module({
   imports: [

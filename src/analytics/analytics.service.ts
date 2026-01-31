@@ -14,7 +14,7 @@ export interface TrackEventInput {
   metadata?: Record<string, unknown>;
 }
 
-interface MetricAggregation {
+export interface MetricAggregation {
   activeUsers: number;
   totalEvents: number;
   totalSwipesRight: number;
@@ -38,7 +38,7 @@ export class AnalyticsService {
     private readonly userEventRepository: Repository<UserEvent>,
     @InjectRepository(MetricSnapshot)
     private readonly metricSnapshotRepository: Repository<MetricSnapshot>,
-  ) {}
+  ) { }
 
   async trackEvent(input: TrackEventInput): Promise<{ status: 'tracked' | 'duplicate' }> {
     const event = this.userEventRepository.create({
@@ -213,7 +213,7 @@ export class AnalyticsService {
     period: MetricPeriod,
     periodStart: Date,
     periodEnd: Date,
-    _timezone: string,
+    timezone: string,
   ): Promise<MetricAggregation> {
     const [totals] = await this.userEventRepository.query(
       `

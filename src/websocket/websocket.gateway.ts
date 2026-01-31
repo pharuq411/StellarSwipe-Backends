@@ -23,8 +23,7 @@ import { JwtPayload } from '../auth/interfaces/jwt-payload.interface';
   pingTimeout: 10000,
 })
 export class WebsocketGateway
-  implements OnGatewayInit, OnGatewayConnection, OnGatewayDisconnect
-{
+  implements OnGatewayInit, OnGatewayConnection, OnGatewayDisconnect {
   @WebSocketServer()
   server!: Server;
 
@@ -33,7 +32,7 @@ export class WebsocketGateway
   constructor(
     private readonly jwtService: JwtService,
     private readonly socketManager: SocketManagerService,
-  ) {}
+  ) { }
 
   afterInit(server: Server): void {
     this.socketManager.setServer(server);
@@ -111,5 +110,10 @@ export class WebsocketGateway
 
   private isAllowedRoom(room?: string): room is SocketRoom {
     return Object.values(SocketRoom).includes(room as SocketRoom);
+  }
+
+  emitToUser(userId: string, event: string, data: any): void {
+    const room = this.socketManager.getUserRoom(userId);
+    this.server.to(room).emit(event, data);
   }
 }
