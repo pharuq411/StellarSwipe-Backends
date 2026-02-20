@@ -25,6 +25,6 @@ import { PriceService } from '../shared/price.service';
     AttributionService,
     PriceService,
   ],
-  exports: [AnalyticsService, RiskMetricsService, AttributionService],
+  exports: [AnalyticsService, RiskMetricsService, AttributionService, StatisticalAnalysisService],
 })
 export class AnalyticsModule {}
