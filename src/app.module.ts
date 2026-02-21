@@ -33,13 +33,9 @@ import { ProvidersModule } from './providers/providers.module';
 import { MlModule } from './ml/ml.module';
 import { ValidationModule } from './common/validation/validation.module';
 import { ScalingModule } from './scaling/scaling.module';
- feature/swipe-124
-import { DatabaseOptimizationModule } from './database/database.module';
-=======
-import { FeesModule } from './fee_management/fees.module';
-=======
- main
- main
+import { ReferralsModule } from './referrals/referrals.module';
+import { EventsModule } from './events/events.module';
+
 
 @Module({
   imports: [
@@ -129,9 +125,8 @@ import { FeesModule } from './fee_management/fees.module';
  feature/swipe-103-stellar
     MlModule,
     ScalingModule,
-    FeesModule,
-=======
- main
+    ReferralsModule,
+    EventsModule,
   ],
   providers: [StellarConfigService],
   exports: [StellarConfigService],
