@@ -36,6 +36,7 @@ import { AnalyticsModule } from './analytics/analytics.module';
 import { WebsocketModule } from './websocket/websocket.module';
 import { I18nModule as LocalI18nModule } from './i18n/i18n.module';
 import { I18nMiddleware } from './i18n/i18n.middleware';
+import { FeatureFlagsModule } from './feature-flags/feature-flags.module';
 
 @Module({
   imports: [
@@ -122,6 +123,7 @@ import { I18nMiddleware } from './i18n/i18n.middleware';
     AuthModule,
     WebsocketModule,
     LocalI18nModule,
+    FeatureFlagsModule,
   ],
   providers: [StellarConfigService],
   exports: [StellarConfigService],
