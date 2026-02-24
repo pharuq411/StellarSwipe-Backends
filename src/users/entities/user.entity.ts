@@ -26,7 +26,6 @@ export class User {
   email?: string;
 
   @Column({ unique: true, nullable: true, length: 56 })
-  @Index('idx_users_wallet_address')
   walletAddress?: string;
 
   @Column({ nullable: true, length: 100 })
@@ -40,6 +39,9 @@ export class User {
 
   @Column({ default: 0 })
   reputationScore!: number;
+
+  @Column({ name: 'referred_by', type: 'uuid', nullable: true })
+  referredBy?: string;
 
   @Column({ type: 'timestamp', nullable: true })
   lastLoginAt?: Date;
